@@ -86,3 +86,43 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+
+
+
+
+
+var months = [];
+var profits = [];
+var numMonths = finances.length;
+
+console.log(`Number of months: ${numMonths}`);  
+
+
+// Iterate through the data array and extract the month and profit data
+for (var element of finances) {
+  months.push(element[0]);
+  profits.push(element[1]);
+}
+
+// Perform data analysis using the month and profit data
+var totalProfit = profits.reduce((acc, profit) => acc + profit, 0);
+var averageProfit = totalProfit / profits.length;
+
+console.log(`Total profit: ${totalProfit}`);
+console.log(`Average profit: ${averageProfit}`);
+
+
+
+
+
+
+let totalChange = 0;
+
+// Loop through the array and calculate the change in profits from month to month
+for (let i = 1; i < profits.length; i++) {
+  const change = profits[i] - profits[i - 1];
+  totalChange += change;
+}
+
+console.log(`Total change in profits: ${totalChange}`);
